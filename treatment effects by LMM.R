@@ -13,6 +13,8 @@ divindex<-scale(divindex)  ##recale the alpha diversities
 
 library(lme4)
 library(car)
+###note: the precipitation level is noted as 0.5, 1, 2 in LMMs. But it is better to be noted as -0.5, 0, 1 to make the ambient condition as '0' for easier
+###interpretation. You can set: treatused$precip=treatused$precip-1 to re-run the LMMs (thus precip=-0.5, 0, 1), whose results are very similar to the current ones.
 
 divs1<-sapply(1:ncol(divindex),function(j){
   message("Now j=",j," in ",ncol(divindex),". ",date())
